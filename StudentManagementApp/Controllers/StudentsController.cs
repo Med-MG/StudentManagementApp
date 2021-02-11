@@ -24,7 +24,17 @@ namespace StudentManagementApp.Controllers
         {
             return View(await _context.Student.ToListAsync());
         }
+        // GET: Students/ShowSearchForm
+        public async Task<IActionResult> ShowSearchForm()
+        {
+            return View();
+        }
 
+        // POST: Students/ShowSearchResults
+        public async Task<IActionResult> ShowSearchResults(string SearchPhrase)
+        {
+            return View("Index", await _context.Student.Where(x => x.FirstName.Contains(SearchPhrase)).ToListAsync());
+        }
         // GET: Students/Details/5
         public async Task<IActionResult> Details(int? id)
         {
