@@ -55,6 +55,7 @@ namespace StudentManagementApp.Controllers
         }
         
         // GET: Students/Create
+        [Authorize]
         public IActionResult Create()
         {
             return View();
