@@ -76,7 +76,7 @@ namespace StudentManagementApp.Controllers
             }
             return View(student);
         }
-
+        [Authorize(Roles = "Admin")]
         // GET: Students/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
